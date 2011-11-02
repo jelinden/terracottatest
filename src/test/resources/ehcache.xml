@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+	updateCheck="false">
+	
+	<diskStore path="java.io.tmpdir/ProductAvailability" />
+	
+	<terracottaConfig url="127.0.0.1:9510" />
+	
+	<defaultCache eternal="false" maxElementsInMemory="1000"
+		overflowToDisk="false" diskPersistent="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="600" memoryStoreEvictionPolicy="LRU" />
+	
+	<cache name="availability" eternal="false" maxElementsInMemory="1000"
+		maxElementsOnDisk="100000" overflowToDisk="false" diskPersistent="false"
+		timeToIdleSeconds="0" timeToLiveSeconds="3600"
+		memoryStoreEvictionPolicy="LRU" logging="true">
+		<terracotta clustered="true" coherent="false" synchronousWrites="false" valueMode="serialization" />
+	</cache>
+</ehcache>
